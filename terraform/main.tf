@@ -21,7 +21,6 @@ module "vpc" {
 resource "random_password" "rds_master_password" {
   length           = 16
   special          = true
-  override_characters = "!@#%^&*"
   upper            = true
   lower            = true
   number           = true
