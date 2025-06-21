@@ -157,7 +157,7 @@ resource "aws_ecs_task_definition" "mini_task" {
         { name = "DB_HOST", value = aws_db_instance.postgres.address },
         { name = "DB_NAME", value = var.db_name },
         { name = "DB_USER", value = var.db_username },
-        { name = "DB_PASSWORD", value = random_password.master_password.result }
+        { name = "DB_PASSWORD", value = random_password.rds_master_password.result }
       ]
     }
   ])
