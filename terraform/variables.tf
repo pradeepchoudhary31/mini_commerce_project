@@ -12,6 +12,6 @@ variable "db_name" {
 variable "db_username" {
   description = "db_username"
   type = string
-  default = "admin"
+  default = "zephyr"
 }
 
