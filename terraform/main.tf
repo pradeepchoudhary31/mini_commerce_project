@@ -20,6 +20,7 @@ module "vpc" {
 
 resource "random_password" "rds_master_password" {
   length           = 16
+  override_special = "!#$%&*()-_=+[]{}<>:?"
   special          = true
   upper            = true
   lower            = true
