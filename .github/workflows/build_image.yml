@@ -37,8 +37,8 @@ jobs:
     #     docker tag mini-commerce:latest ${{ secrets.ECR_REPO_URI }}:latest
     #     docker push ${{ secrets.ECR_REPO_URI }}:latest
 
-    - name: Terraform Deploy to AWS
-      run: |
-        cd terraform
-        terraform init
-        terraform destroy -auto-approve
+  - name: Terraform Destroy AWS Resources
+    run: |
+      cd terraform
+      terraform init
+      terraform destroy -auto-approve -var="ecr_repo_url=${{ secrets.ECR_REPO_URI }}"
