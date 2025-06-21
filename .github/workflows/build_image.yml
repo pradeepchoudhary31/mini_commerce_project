@@ -31,14 +31,14 @@ jobs:
     - name: Log in to Amazon ECR
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Build and Push Docker image to ECR
-      run: |
-        docker build -t mini-commerce .
-        docker tag mini-commerce:latest ${{ secrets.ECR_REPO_URI }}:latest
-        docker push ${{ secrets.ECR_REPO_URI }}:latest
+    # - name: Build and Push Docker image to ECR
+    #   run: |
+    #     docker build -t mini-commerce .
+    #     docker tag mini-commerce:latest ${{ secrets.ECR_REPO_URI }}:latest
+    #     docker push ${{ secrets.ECR_REPO_URI }}:latest
 
     - name: Terraform Deploy to AWS
       run: |
         cd terraform
         terraform init
-        terraform destory -auto-approve 
+        terraform destroy -auto-approve 
