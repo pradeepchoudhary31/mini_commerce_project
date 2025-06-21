@@ -23,7 +23,7 @@ resource "random_password" "rds_master_password" {
   special          = true
   upper            = true
   lower            = true
-  number           = true
+  numeric           = true
 }
 
 resource "aws_ssm_parameter" "rds_password" {
@@ -47,7 +47,7 @@ resource "aws_db_instance" "postgres" {
   engine                  = "postgres"
   instance_class          = "db.t3.micro"
   allocated_storage       = 20
-  name                    = var.db_name
+  db_name                    = var.db_name
   username                = var.db_username
   password                = random_password.rds_master_password.result
   db_subnet_group_name    = aws_db_subnet_group.rds_subnet_group.name
