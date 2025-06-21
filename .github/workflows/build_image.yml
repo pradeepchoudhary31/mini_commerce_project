@@ -20,7 +20,7 @@ jobs:
       uses: hashicorp/setup-terraform@v3
       with:
         terraform_version: 1.6.6
-        
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
@@ -41,5 +41,4 @@ jobs:
       run: |
         cd terraform
         terraform init
-        terraform apply -auto-approve \
-          -var="ecr_repo_url=${{ secrets.ECR_REPO_URI }}"
+        terraform destory -auto-approve 
